@@ -26,6 +26,10 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+        homeViewModel.listData.observe(viewLifecycleOwner, {
+
+        })
+
         return root
     }
 }
