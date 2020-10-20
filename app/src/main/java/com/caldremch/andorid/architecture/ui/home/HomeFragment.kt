@@ -8,7 +8,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.paging.LivePagedListBuilder
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.caldremch.andorid.architecture.R
+import com.caldremch.andorid.architecture.adapter.ListAdapter
 
 class HomeFragment : Fragment() {
 
@@ -29,6 +33,11 @@ class HomeFragment : Fragment() {
         homeViewModel.listData.observe(viewLifecycleOwner, {
 
         })
+        val rvList = root.findViewById<RecyclerView>(R.id.rv_list)
+        val adapter = ListAdapter()
+        rvList.layoutManager = LinearLayoutManager(context)
+        rvList.adapter = adapter
+
 
         return root
     }
